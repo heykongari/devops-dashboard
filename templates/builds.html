@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Recent Jenkins Builds</h2>
+
+{% if builds %}
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr style="background-color: #f0f0f0;">
+        <th>Build ID</th>
+        <th>Status</th>
+        <th>TimeStamp</th>
+    </tr>
+    {% for build in builds %}
+    <tr>
+        <td>#{{ build.id }}</td>
+        <td>
+            {% if build.status == "SUCCESS" %}
+                <span class="badge badge-success">✅ SUCCESS</span>
+            {% elif build.status == "FAILURE" %}
+                <span class="badge badge-failure">❌ FAILURE</span>
+            {% elif build.status == "IN PROGRESS" %}
+                <span class="badge badge-progress">🕒 IN PROGRESS</span>
+            {% else %}
+                <span class="badge badge-other">🔄 {{ build.status }}</span>
+            {% endif %}
+        </td>
+        <td>{{ build.timestamp }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No builds found (or) Jenkins API error.</p>
+{% endif %}
+{% endblock %}

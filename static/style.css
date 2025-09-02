@@ -1,0 +1,11 @@
+.badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.badge-success { background-color: #28a745; color: white; }
+.badge-failure { background-color: #dc3545; color: white; }
+.badge-progress { background-color: #ffc107; color: black; }
+.badge-other { background-color: #6c757d; color: white; }

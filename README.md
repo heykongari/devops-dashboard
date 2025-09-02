@@ -1,2 +1,2 @@
-# web-app
-A lightweight flask web app.
+# DevOps Dashboard
+Flask web application to track builds and deployments.
